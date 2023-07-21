@@ -14,17 +14,13 @@ let target = process.argv[2];
 let api = "http://ip-api.com/json/" + target + "?fields=9634809";
 let data  = '';
 
-// google maps link base: https://maps.google.com/?ll=latitude,longitude
-
 fetch(api).then(function(response) {
     return response.json();
  }).then(function(jsonData) {
     data=jsonData
-    // console.log(data);
-
     let dataStringify = JSON.stringify(data);
-
     let obj = JSON.parse(dataStringify);
+
     let lon = obj.lon;
     let lat = obj.lat;
     let cont = obj.continent;
@@ -42,12 +38,6 @@ fetch(api).then(function(response) {
         "\ncity: " + city + "\nzip: " + zip + "\ntimezone: " + tz + "\ncurrency: " + curr + 
         "\nisp: " + isp + "\nmobile: " + mob + "\nproxy: " + pro);
 
-
     let gmap = "\nhttps://maps.google.com/?ll=" + lat + "," + lon;
     console.log(gmap + "\n");
-
 });
-
-
-
-
