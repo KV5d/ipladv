@@ -15,12 +15,10 @@ else {
 var target = process.argv[2];
 var api = "http://ip-api.com/json/" + target + "?fields=9634809";
 var data = '';
-// google maps link base: https://maps.google.com/?ll=latitude,longitude
 fetch(api).then(function (response) {
     return response.json();
 }).then(function (jsonData) {
     data = jsonData;
-    // console.log(data);
     var dataStringify = JSON.stringify(data);
     var obj = JSON.parse(dataStringify);
     var lon = obj.lon;
